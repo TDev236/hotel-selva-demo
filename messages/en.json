@@ -1,0 +1,26 @@
+{
+  "nav.home": "Home",
+  "nav.rooms": "Rooms",
+  "nav.experiences": "Experiences",
+  "nav.location": "Location",
+  "nav.contact": "Contact",
+
+  "hero.badge": "Amazon Jungle Lodge",
+  "hero.title": "Jungle lodge in the Amazon",
+  "hero.subtitle": "Disconnect from the noise, connect with the rainforest.",
+  "hero.cta": "Book via WhatsApp",
+  "hero.secondary": "View rooms",
+
+  "rooms.title": "Rooms",
+  "rooms.desc": "Jungle cabins designed for deep rest, surrounded by the sounds of nature.",
+
+  "experiences.title": "Experiences",
+  "experiences.desc": "Night walks, pink river dolphins, local communities, tubing and more.",
+
+  "location.title": "Location",
+  "location.desc": "Located in the heart of the Amazon. We help you arrange boats, transfers and schedules from the nearest city.",
+
+  "contact.title": "Contact",
+  "contact.desc": "Send us a message on WhatsApp to check availability, prices and plan your arrival.",
+  "contact.cta": "Chat on WhatsApp"
+}

@@ -1,0 +1,26 @@
+{
+  "nav.home": "Inicio",
+  "nav.rooms": "Habitaciones",
+  "nav.experiences": "Experiencias",
+  "nav.location": "Ubicación",
+  "nav.contact": "Contacto",
+
+  "hero.badge": "Amazon Jungle Lodge",
+  "hero.title": "Hotel en la selva amazónica",
+  "hero.subtitle": "Desconéctate del ruido, conéctate con la selva.",
+  "hero.cta": "Reservar por WhatsApp",
+  "hero.secondary": "Ver habitaciones",
+
+  "rooms.title": "Habitaciones",
+  "rooms.desc": "Cabañas inmersas en la selva, diseñadas para descansar profundamente y escuchar la naturaleza.",
+
+  "experiences.title": "Experiencias",
+  "experiences.desc": "Caminatas nocturnas, avistamiento de delfines rosados, visitas a comunidades, tubing y más.",
+
+  "location.title": "Ubicación",
+  "location.desc": "Ubicados en plena Amazonía. Te ayudamos a coordinar lancha, traslados y horarios desde la ciudad más cercana.",
+
+  "contact.title": "Contacto",
+  "contact.desc": "Escríbenos por WhatsApp para confirmar disponibilidad, precios y coordinar tu llegada a la selva.",
+  "contact.cta": "Hablar por WhatsApp"
+}
