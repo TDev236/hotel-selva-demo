@@ -3,6 +3,7 @@
 import React from "react";
 import { Navbar } from "../components/Navbar";
 import { HeroParallax } from "../components/HeroParallax";
+import { ReservationForm } from "../components/ReservationForm";
 
 type Lang = "es" | "en";
 
@@ -13,34 +14,80 @@ const STRINGS = {
       rooms: "Habitaciones",
       experiences: "Experiencias",
       location: "Ubicación",
-      contact: "Contacto",
+      contact: "Reserva",
     },
     hero: {
       badge: "Amazon Jungle Lodge",
-      title: "Hotel en la selva amazónica",
-      subtitle: "Desconéctate del ruido, conéctate con la selva.",
+      title: "Despierta con la selva a tu ventana",
+      subtitle:
+        "Cabañas cómodas, comida local y experiencias guiadas por personas que realmente viven en la Amazonía.",
       cta: "Reservar por WhatsApp",
       secondary: "Ver habitaciones",
       whatsappMessage:
         "Hola, quiero más información y disponibilidad del hotel en la selva.",
     },
+    highlights: {
+      title: "Por qué quedarte aquí",
+      items: [
+        "Cabañas rodeadas de selva, con baño privado y energía en horarios definidos.",
+        "Guías locales certificados que te llevan a caminar, nadar y conocer la Amazonía de forma segura.",
+        "Alimentación casera con ingredientes de la región (opciones vegetarianas disponibles).",
+        "Traslados coordinados desde la ciudad: no tienes que preocuparte por lanchas ni horarios.",
+      ],
+    },
     rooms: {
       title: "Habitaciones",
-      desc: "Cabañas inmersas en la selva, diseñadas para descansar profundamente y escuchar la naturaleza.",
+      desc: "Elige la cabaña que mejor se ajuste a tu estilo de viaje. Todas incluyen mosquiteros, sábanas frescas y ventilación natural.",
     },
     experiences: {
-      title: "Experiencias",
-      desc: "Caminatas nocturnas, avistamiento de delfines rosados, visitas a comunidades, tubing y más.",
+      title: "Experiencias en la selva",
+      desc: "No es solo dormir en la selva: es conectar con el río, los animales y las personas que viven aquí.",
     },
     location: {
-      title: "Ubicación",
-      desc: "Ubicados en plena Amazonía. Te ayudamos a coordinar lancha, traslados y horarios desde la ciudad más cercana.",
+      title: "Ubicación y acceso",
+      desc: "Estamos a orillas de un río amazónico, lejos del ruido pero conectados con la ciudad más cercana. Te enviamos instrucciones claras y te ayudamos a coordinar lanchas y horarios.",
+      howToGetTitle: "¿Cómo se llega?",
+      howToGetBullets: [
+        "Llegas primero a la ciudad base (ej. Leticia o Tabatinga).",
+        "Te recogemos en el puerto o coordinamos una lancha directa hacia el lodge.",
+        "El trayecto en río suele durar entre 30 y 60 minutos, según el nivel del agua.",
+      ],
     },
     contact: {
-      title: "Contacto",
-      desc: "Escríbenos por WhatsApp para confirmar disponibilidad, precios y coordinar tu llegada a la selva.",
-      cta: "Hablar por WhatsApp",
-      note: "Atención por WhatsApp todos los días.",
+      sectionTitle: "Reserva tu estadía en la selva",
+      sectionSubtitle:
+        "Déjanos tus fechas tentativas y número de personas. Te confirmamos disponibilidad y valor por WhatsApp.",
+      form: {
+        title: "Formulario de reserva",
+        subtitle:
+          "Esto no genera un pago automático. Es una solicitud directa a nuestro WhatsApp para coordinar tu experiencia.",
+        labels: {
+          name: "Nombre completo",
+          email: "Correo electrónico",
+          phone: "Teléfono (con indicativo)",
+          checkIn: "Fecha de llegada",
+          checkOut: "Fecha de salida",
+          guests: "Número de personas",
+          roomType: "Tipo de habitación",
+          notes: "Comentarios o requerimientos especiales",
+        },
+        placeholders: {
+          name: "Ej. Ana Pérez",
+          email: "Ej. ana@example.com",
+          phone: "Ej. +57 300 000 0000",
+          notes:
+            "Ej. Llegamos en vuelo de la mañana, una persona vegetariana...",
+        },
+        roomOptions: [
+          "Cabaña estándar (1–2 personas)",
+          "Cabaña familiar (3–4 personas)",
+          "Suite selva (vista panorámica)",
+        ],
+        button: "Enviar solicitud por WhatsApp",
+        errorRequired:
+          "Por favor completa al menos tu nombre, teléfono y fechas de llegada/salida.",
+      },
+      note: "Atención por WhatsApp todos los días. Respuesta usual en menos de 24 horas.",
     },
     footer: "Todos los derechos reservados.",
   },
@@ -50,34 +97,79 @@ const STRINGS = {
       rooms: "Rooms",
       experiences: "Experiences",
       location: "Location",
-      contact: "Contact",
+      contact: "Book",
     },
     hero: {
       badge: "Amazon Jungle Lodge",
-      title: "Jungle lodge in the Amazon",
-      subtitle: "Disconnect from the noise, connect with the rainforest.",
+      title: "Wake up with the jungle at your window",
+      subtitle:
+        "Comfortable cabins, local food and guided experiences with people who actually live in the Amazon.",
       cta: "Book via WhatsApp",
       secondary: "View rooms",
       whatsappMessage:
         "Hi! I’d like more information and availability for the jungle lodge.",
     },
+    highlights: {
+      title: "Why stay with us",
+      items: [
+        "Jungle cabins with private bathroom and power at defined hours.",
+        "Certified local guides to walk, swim and explore the Amazon safely.",
+        "Homemade food with regional ingredients (vegetarian options available).",
+        "Transfers coordinated from the city: no need to worry about boats or schedules.",
+      ],
+    },
     rooms: {
       title: "Rooms",
-      desc: "Jungle cabins designed for deep rest, surrounded by the sounds of nature.",
+      desc: "Choose the cabin that fits your travel style. All include mosquito nets, fresh linens and natural airflow.",
     },
     experiences: {
-      title: "Experiences",
-      desc: "Night walks, pink river dolphins, local communities, tubing and more.",
+      title: "Jungle experiences",
+      desc: "It’s not only about sleeping in the jungle: it’s about connecting with the river, the animals and the people who live here.",
     },
     location: {
-      title: "Location",
-      desc: "Located in the heart of the Amazon. We help you arrange boats, transfers and schedules from the nearest city.",
+      title: "Location & access",
+      desc: "We are located by an Amazonian river, far from the city noise but connected to the nearest town. We send clear instructions and help you coordinate boats and schedules.",
+      howToGetTitle: "How do you get here?",
+      howToGetBullets: [
+        "First you arrive to the base city (e.g. Leticia or Tabatinga).",
+        "We pick you up at the port or coordinate a direct boat to the lodge.",
+        "The river trip usually takes 30–60 minutes, depending on water level.",
+      ],
     },
     contact: {
-      title: "Contact",
-      desc: "Send us a message on WhatsApp to check availability, prices and plan your arrival.",
-      cta: "Chat on WhatsApp",
-      note: "WhatsApp support every day.",
+      sectionTitle: "Book your jungle stay",
+      sectionSubtitle:
+        "Tell us your tentative dates and number of guests. We’ll confirm availability and pricing via WhatsApp.",
+      form: {
+        title: "Reservation form",
+        subtitle:
+          "This does not charge your card. It simply sends a detailed request to our WhatsApp so we can organize everything with you.",
+        labels: {
+          name: "Full name",
+          email: "Email",
+          phone: "Phone (with country code)",
+          checkIn: "Check-in date",
+          checkOut: "Check-out date",
+          guests: "Number of guests",
+          roomType: "Room type",
+          notes: "Comments or special requests",
+        },
+        placeholders: {
+          name: "E.g. Anna Smith",
+          email: "E.g. anna@example.com",
+          phone: "E.g. +1 555 000 0000",
+          notes: "E.g. Morning flight, one vegetarian guest...",
+        },
+        roomOptions: [
+          "Standard cabin (1–2 guests)",
+          "Family cabin (3–4 guests)",
+          "Jungle suite (panoramic view)",
+        ],
+        button: "Send request via WhatsApp",
+        errorRequired:
+          "Please fill at least your name, phone number and check-in/out dates.",
+      },
+      note: "WhatsApp support every day. We usually reply within 24 hours.",
     },
     footer: "All rights reserved.",
   },
@@ -92,11 +184,28 @@ export default function HomePage() {
       {/* Navbar */}
       <Navbar lang={lang} onChangeLang={setLang} texts={t.nav} />
 
-      {/* Spacer para que el contenido no quede debajo del header */}
+      {/* Spacer para el header fijo */}
       <div className="h-[56px] md:h-[60px]" />
 
       {/* Hero */}
       <HeroParallax texts={t.hero} />
+
+      {/* Destacados: por qué quedarse */}
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-18">
+        <h2 className="mb-4 text-2xl font-semibold md:text-3xl">
+          {t.highlights.title}
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {t.highlights.items.map((item, idx) => (
+            <div
+              key={idx}
+              className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-gray-200"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Habitaciones */}
       <section
@@ -226,41 +335,38 @@ export default function HomePage() {
             {t.location.desc}
           </p>
         </div>
-        <div className="flex h-56 w-full items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-xs text-gray-400 sm:h-64 md:h-72">
-          {lang === "es"
-            ? "Aquí puedes colocar un mapa estático o una foto aérea de la zona."
-            : "You can place a static map or an aerial photo of the area here."}
-        </div>
-      </section>
 
-      {/* Contacto */}
-      <section id="contact" className="border-t border-white/10 bg-white/5">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between md:py-14">
-          <div className="max-w-xl">
-            <h2 className="text-2xl font-semibold md:text-3xl">
-              {t.contact.title}
-            </h2>
-            <p className="mt-2 text-sm text-gray-300 sm:text-base">
-              {t.contact.desc}
-            </p>
+        <div className="grid gap-6 md:grid-cols-[minmax(0,1.2fr),minmax(0,1fr)]">
+          <div className="flex h-56 w-full items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-xs text-gray-400 sm:h-64 md:h-72">
+            {lang === "es"
+              ? "Aquí puedes colocar un mapa estático o una foto aérea de la zona."
+              : "You can place a static map or an aerial photo of the area here."}
           </div>
 
-          <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-            <a
-              href="https://wa.me/573001112233"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-medium text-black shadow-lg transition hover:bg-emerald-400"
-            >
-              {t.contact.cta}
-            </a>
-            <p className="text-xs text-gray-400 sm:text-sm">{t.contact.note}</p>
+          <div className="space-y-3 text-sm text-gray-300">
+            <p className="font-medium">{t.location.howToGetTitle}</p>
+            <ul className="list-disc space-y-1 pl-5 text-xs sm:text-sm">
+              {t.location.howToGetBullets.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
+      {/* Formulario de reserva (WhatsApp) */}
+      <ReservationForm lang={lang} texts={t.contact.form} />
+
+      {/* Nota de atención por WhatsApp */}
+      <div className="border-t border-white/5 bg-black/80">
+        <div className="mx-auto max-w-6xl px-4 py-4 text-[11px] text-gray-400 sm:px-6">
+          {t.contact.note}
+        </div>
+      </div>
+
+      {/* Footer */}
       <footer className="border-t border-white/10 bg-black py-4 text-center text-[11px] text-gray-500">
-        © {new Date().getFullYear()} Selva Lodge.{" "}
+        © {new Date().getFullYear()} Tiffani ARM.{" "}
         {lang === "es" ? STRINGS.es.footer : STRINGS.en.footer}
       </footer>
     </main>
