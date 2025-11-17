@@ -23,7 +23,7 @@ type ReservationTexts = {
     phone: string;
     notes: string;
   };
-  roomOptions: string[];
+  roomOptions: readonly string[];
   button: string;
   errorRequired: string;
 };
